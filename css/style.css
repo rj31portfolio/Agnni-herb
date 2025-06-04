@@ -138,6 +138,23 @@
     transition: .5s;
     opacity: 1;
 }
+@media only screen and (max-width: 767px) {
+  .feature-service {
+    /* Example adjustments for mobile */
+    padding: 20px;
+    margin-top: 370px; /* Adjust as needed */
+    font-size: 16px;
+    flex-direction: column;  /* If using flexbox */
+    align-items: center;     /* Center content */
+    text-align: center;
+  }
+
+  .feature-service > * {
+    margin-bottom: 15px; /* Adds spacing between child elements */
+    width: 100%;         /* Full width for mobile */
+  }
+}
+    
 
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
@@ -351,7 +368,7 @@
 
 @media (max-width: 992px) {
     .carousel .carousel-inner .carousel-item {
-        height: 700px;
+        height: 300px;
         margin-top: -100px;
     }
 
