@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Email content
     $to = "agniherb@gmail.com"; // Your Gmail
-    $subject = "New Contact Form Submission from $name";
+    $subject = "New Lead form Submitted by $name";
     $body = "Name: $name\n";
     $body .= "Phone: $phone\n";
     $body .= "Email: $email\n";
