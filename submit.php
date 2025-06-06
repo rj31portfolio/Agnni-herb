@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body .= "Phone: $phone\n";
     $body .= "Email: $email\n";
     $body .= "Message:\n$message\n";
-
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
 
