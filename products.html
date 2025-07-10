@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>AGNI HERB</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Ayurvedic products, herbal supplements, natural immunity booster, digestion support, organic wellness, AGNI HERB, Ayurvedic medicine, herbal health care" name="keywords">
-        <meta content="AGNI HERB offers 100% natural Ayurvedic wellness products crafted to boost immunity, aid digestion, and promote holistic health with the power of herbs." name="description">
-        <link rel="icon" type="image/x-icon" href="img/medita health.png">
+<head>
+    <meta charset="utf-8">
+    <title>AGNI HERB</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Ayurvedic products, herbal supplements, natural immunity booster, digestion support, organic wellness, AGNI HERB, Ayurvedic medicine, herbal health care" name="keywords">
+    <meta content="AGNI HERB offers 100% natural Ayurvedic wellness products crafted to boost immunity, aid digestion, and promote holistic health with the power of herbs." name="description">
+    <link rel="icon" type="image/x-icon" href="img/medita health.png">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-
-        
-        <style>
-        @media screen and (max-width: 768px) {
-        .mobile-margin-top {
-            margin-top: -460px;
-        }
-        }
-        .carousel {
+    <style>
+    @media screen and (max-width: 768px) {
+    .mobile-margin-top {
+        margin-top: -460px;
+    }
+    }
+    .carousel {
       position: relative;
       max-width: 960px;
       margin: auto;
@@ -110,322 +108,401 @@
     .nav-right {
       right: 0;
     }
-        </style>
+    
+    /* Modal Styles */
+    .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: auto;
+    padding: 20px;
+}
 
-    </head>
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh; /* LIMIT HEIGHT */
+    overflow-y: auto;  /* MAKE CONTENT SCROLLABLE */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-    <body>
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .btn-primary {
+      background-color: #19409a;
+      color: white;
+    }
+    
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    
+    .product-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #19409a;
+    }
+    
+    .success-message {
+      display: none;
+      color: green;
+      margin-top: 10px;
+    }
+    
+    .error-message {
+      display: none;
+      color: red;
+      margin-top: 10px;
+    }
+    
+    @media (max-width: 576px) {
+      .modal-content {
+        width: 95%;
+        padding: 15px;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    </style>
+</head>
 
-        <!-- Spinner Start -->
-        <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
+<body>
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <img style="filter: drop-shadow(0 0 20px white);" src="img/medita health.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Home</span></a>
+                    <a href="about.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">About</span></a>
+                    <a href="products.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Product</span></a>
+                    <a href="contact.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Contact</span></a>
+                </div>
+                <div class="d-none d-xl-flex me-3">
+                    <div class="d-flex flex-column pe-3 border-end border-primary">
+                    </div>
+                </div>
+                <a href="https://wa.me/+918882770287" class="btn btn-secondary2 rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Contact Us</a>
             </div>
-        </div> -->
-        <!-- Spinner End -->
-
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <!-- <h1 class="text-primary">logo</h1> -->
-                    <img style="filter: drop-shadow(0 0 20px white);" src="img/medita health.png" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active "><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Home</span></a>
-                        <a href="about.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">About</span></a>
-                        <a href="products.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Product</span></a>
-                        
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="feature.html" class="dropdown-item">Our Feature</a>
-                                <a href="product.html" class="dropdown-item">Our Product</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div> -->
-                        <a href="contact.html" class="nav-item nav-link"><span style="background-color: #19409a; border-radius: 18px; padding: 6px; color: white;">Contact</span></a>
-                    </div>
-                    <div class="d-none d-xl-flex me-3">
-                        <div class="d-flex flex-column pe-3 border-end border-primary">
-                            <!-- <a href="tel:+4733378901"><span class="text-primary">agneyaheathcare@gmail.com</span></a> -->
-                            <!-- <a href="tel:+4733378901"><span class="text-primary">Free: + 0123 456 7890</span></a> -->
-                        </div>
-                    </div>
-                    <!-- <button class="btn btn-primary btn-md-square d-flex flex-shrink-0 mb-3 mb-lg-0 rounded-circle me-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button> -->
-                    <a href="https://wa.me/+918882770287" class="btn btn-secondary2 rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Contact Us</a>
-                </div>
-            </nav>
-        </div>
-        <!-- Navbar & Hero End -->
-         <section class="breadcrumb-section py-5" style="background-image: url('img/banner\ about.png');">
-  <div class="auto-container py-5">
-    <h1 class="page-title">Products</h1>
-    <ul class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li>Products</li>
-    </ul>
-  </div>  
-</section>
- <!-- Products Start -->
-        <div id="product" class=" container-fluid product py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-uppercase text-primary">Our Products</h4>
-                    <h1 class="display-3 text-capitalize mb-3">Enhancing Intimacy with Trusted Products.</h1>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="product-item">
-                            <img src="img/2.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                            <div class="product-content bg-light text-center rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-3">Agni Herb Capsule </br> (For Men)</a>
-                                <p class=" text- mb-3">Agni Herb Capsule for Men is a 100% natural supplement that supports energy, stamina, and overall male vitality. Contains 60 herbal capsules.</p>
-                                <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹4,498</span><br>₹3499 <span style="font-size: small; color: red;">22.21% OFF</span></p>
-                                <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                                <a href="addtocart.html"  rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="product-item">
-                            <img src="img/4.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                            <div class="product-content bg-light text-center rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-3">Agni Herb Powder </br> (For Men)</a>
-                                <p class="mb-3">Agni Herb Powder for Men is a 100% natural herbal blend designed to boost energy, stamina, and male wellness. Comes in a 100g pack for daily vitality support.</p>
-                                <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹6,997</span><br>₹5,998<span style="font-size: small; color: red;"> 14.28% OFF</span></p>
-                                <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                                 <a href="addtocart.html"  rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="product-item">
-                            <img src="img/3.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                            <div class="product-content bg-light text-center rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-3">Agni Herb Drop </br> (For Men)</a>
-                                <p class="mb-3">Agni Herb Drop for Men is a 100% natural liquid extract designed to support stamina, energy, and male wellness. Comes in a 30ml easy-to-use dropper bottle.</p>
-                                <p class="fs-4 text-primary mb-3">₹2,499</p>
-                                <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                                 <a href="addtocart.html"  rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp d-none" data-wow-delay="0.6s">
-                        <div class="product-item">
-                            <img src="img/product-4.png" class="img-fluid w-100 rounded-top"  alt="Image">
-                            <div class="product-content bg-light text-center rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-3">AgniHerb Penis Enlargement oil</a>
-                                <p class="mb-3">AgniHerb Oil enhance size, boost performance, and build confidence naturally.</p>
-                                <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹1,999</span><br> ₹999 <span style="font-size: small; color: red;">50% OFF</span></p>
-                                <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                                 <a href="addtocart.html"  rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Products End -->
-<!--Review Section Start-->
-<div class="carousel mb-5">
-    <div class="nav-btn nav-left" onclick="moveSlide(-1)">&#10094;</div>
-    <div class="carousel-track" id="carouselTrack">
-      <div class="review">
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
-          <div class="profile-info">
-            <strong>Suresh</strong>
-            <small>3 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
-          </div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <div class="review-text">
-          Very effective and easy to use. I feel more energetic after using it for a few days. Great natural product!.
-        </div>
-      </div>
-
-      <div class="review">
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
-          <div class="profile-info">
-            <strong>Mahesh</strong>
-            <small>5 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
-          </div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <div class="review-text">
-          The powder tastes good when mixed with warm water. It helps with stamina and gives a natural boost.
-        </div>
-      </div>
-
-      <div class="review">
-        <div class="profile">
-          <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
-          <div class="profile-info">
-            <strong>Rajendra</strong>
-            <small>7 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
-          </div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <div class="review-text">
-          These capsules are very convenient. I’ve noticed better energy and focus. No side effects, all natural!.
-        </div>
-      </div>
+        </nav>
     </div>
-    <div class="nav-btn nav-right" onclick="moveSlide(1)">&#10095;</div>
-  </div>
-  <!-- Review Section End -->
-         <!-- Footer Start -->
-        <div id="contact" class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-            <div class="container py-5">
-                <div class="row g-5 mb-5 align-items-center">
-                    <div class="col-lg-7">
-                        <div class="position-relative mx-auto">
-                            <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Email address to Subscribe">
-                            <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                         <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.facebook.com/people/Agni-Herb/61577347618387/"><i class="fab fa-facebook-f"></i>
-                            <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.instagram.com/agni.herb/"><i class="fab fa-instagram"></i></a>
-
+    <!-- Navbar & Hero End -->
+    
+    <section class="breadcrumb-section py-5" style="background-image: url('img/banner\ about.png');">
+        <div class="auto-container py-5">
+            <h1 class="page-title">Products</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Products</li>
+            </ul>
+        </div>  
+    </section>
+    
+    <!-- Products Start -->
+    <div id="product" class="container-fluid product py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Our Products</h4>
+                <h1 class="display-3 text-capitalize mb-3">Enhancing Intimacy with Trusted Products.</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-item">
+                        <img src="img/2.png" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">Agni Herb Capsule </br> (For Men)</a>
+                            <p class="text-mb-3">Agni Herb Capsule for Men is a 100% natural supplement that supports energy, stamina, and overall male vitality. Contains 60 herbal capsules.</p>
+                            <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹4,498</span><br>₹3499 <span style="font-size: small; color: red;">22.21% OFF</span></p>
+                            <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
+                            <button onclick="openShippingForm('Agni Herb Capsule (For Men)', '3499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <div class="footer-item"> 
-                                <!-- <h3 class="text-white mb-4"><i class="fas fa-hand-holding-water text-primary me-3"></i>Acuas</h3> -->
-                                <p class="mb-3">Boost your confidence and intimacy with our natural tablets and oils, designed to enhance stamina and pleasure. Safe, effective, and discreet for lasting moments.</p>
-                            </div>
-                            <!-- <div class="position-relative">
-                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">SignUp</button>
-                            </div> -->
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <img src="img/4.png" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">Agni Herb Powder </br> (For Men)</a>
+                            <p class="mb-3">Agni Herb Powder for Men is a 100% natural herbal blend designed to boost energy, stamina, and male wellness. Comes in a 100g pack for daily vitality support.</p>
+                            <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹6,997</span><br>₹5,998<span style="font-size: small; color: red;"> 14.28% OFF</span></p>
+                            <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
+                            <button onclick="openShippingForm('Agni Herb Powder (For Men)', '5998')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">About Us</h4>
-                            <a href="index.html"><i class="fas fa-angle-right me-2"></i> Home</a>
-                            <a href="about.html"><i class="fas fa-angle-right me-2"></i> About</a>
-                            <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                            <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a> -->
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="product-item">
+                        <img src="img/3.png" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">Agni Herb Drop </br> (For Men)</a>
+                            <p class="mb-3">Agni Herb Drop for Men is a 100% natural liquid extract designed to support stamina, energy, and male wellness. Comes in a 30ml easy-to-use dropper bottle.</p>
+                            <p class="fs-4 text-primary mb-3">₹2,499</p>
+                            <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
+                            <button onclick="openShippingForm('Agni Herb Drop (For Men)', '2499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Business Hours</h4>
-                            <div class="mb-3">
-                                <h6 class="text-muted mb-0">Mon - Friday:</h6>
-                                <p class="text-white mb-0">09.00 am to 07.00 pm</p>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="text-muted mb-0">Saturday:</h6>
-                                <p class="text-white mb-0">10.00 am to 05.00 pm</p>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="text-muted mb-0">Vacation:</h6>
-                                <p class="text-white mb-0">All Sunday is our vacation</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="footer-item d-flex flex-column">
-                            <h4 class="text-white mb-4">Contact Info</h4>
-                            <!-- <a href="#"><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a> -->
-                            <!-- <a href="mailto:info@example.com"><i class="fas fa-envelope me-2"></i> info@example.com</a> -->
-                            <a href="mailto:agniherb@gmail.com"><i class="fas fa-mail-bulk"></i> agniherb@gmail.com</a>
-                            <a href="tel:+918882770287"><i class="fas fa-phone me-2"></i>+91 8882770287</a>
-                            <!-- <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a> -->
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp d-none" data-wow-delay="0.6s">
+                    <div class="product-item">
+                        <img src="img/product-4.png" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">AgniHerb Penis Enlargement oil</a>
+                            <p class="mb-3">AgniHerb Oil enhance size, boost performance, and build confidence naturally.</p>
+                            <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹1,999</span><br> ₹999 <span style="font-size: small; color: red;">50% OFF</span></p>
+                            <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
+                            <button onclick="openShippingForm('AgniHerb Penis Enlargement oil', '999')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+    </div>
+    <!-- Products End -->
+    
+    <!-- Shipping Form Modal -->
+    <div id="shippingModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Shipping Information</h2>
+            <div class="product-name" id="selectedProduct"></div>
+            <div class="product-price" id="selectedPrice"></div>
+            
+            <form id="shippingForm" method="post" action="send_order.php">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Full Address</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <select id="quantity" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                
+                <input type="hidden" id="productName" name="productName">
+                <input type="hidden" id="productPrice" name="productPrice">
+                
+                <div id="successMessage" class="success-message">Order submitted successfully! We'll contact you soon.</div>
+                <div id="errorMessage" class="error-message">There was an error submitting your order. Please try again.</div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeShippingForm()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        
+    <!--Review Section Start-->
+    <div class="carousel mb-5">
+        <div class="nav-btn nav-left" onclick="moveSlide(-1)">&#10094;</div>
+        <div class="carousel-track" id="carouselTrack">
+            <div class="review">
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                    <div class="profile-info">
+                        <strong>Suresh</strong>
+                        <small>3 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">
+                    Very effective and easy to use. I feel more energetic after using it for a few days. Great natural product!.
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+                    <div class="profile-info">
+                        <strong>Mahesh</strong>
+                        <small>5 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">
+                    The powder tastes good when mixed with warm water. It helps with stamina and gives a natural boost.
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+                    <div class="profile-info">
+                        <strong>Rajendra</strong>
+                        <small>7 days ago on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" class="google-logo" /></small>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">
+                    These capsules are very convenient. I've noticed better energy and focus. No side effects, all natural!.
+                </div>
+            </div>
+        </div>
+        <div class="nav-btn nav-right" onclick="moveSlide(1)">&#10095;</div>
+    </div>
+    <!-- Review Section End -->
+    
+    <!-- Footer Start -->
+    <div id="contact" class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5 mb-5 align-items-center">
+                <div class="col-lg-7">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Email address to Subscribe">
+                        <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.facebook.com/people/Agni-Herb/61577347618387/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-secondary btn-md-square rounded-circle me-3" href="https://www.instagram.com/agni.herb/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <div class="footer-item"> 
+                            <p class="mb-3">Boost your confidence and intimacy with our natural tablets and oils, designed to enhance stamina and pleasure. Safe, effective, and discreet for lasting moments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">About Us</h4>
+                        <a href="index.html"><i class="fas fa-angle-right me-2"></i> Home</a>
+                        <a href="about.html"><i class="fas fa-angle-right me-2"></i> About</a>
+                        <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Business Hours</h4>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-0">Mon - Friday:</h6>
+                            <p class="text-white mb-0">09.00 am to 07.00 pm</p>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-0">Saturday:</h6>
+                            <p class="text-white mb-0">10.00 am to 05.00 pm</p>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-0">Vacation:</h6>
+                            <p class="text-white mb-0">All Sunday is our vacation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href="mailto:agniherb@gmail.com"><i class="fas fa-mail-bulk"></i> agniherb@gmail.com</a>
+                        <a href="tel:+918882770287"><i class="fas fa-phone me-2"></i>+91 8882770287</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
     <!-- This is the whatsapp section -->
     <div class="position-relative">
         <a class="call" href="tel:+#"><i class="bi bi-telephone"></i></a>
-        <a class="whatsapp"
-            href="https://api.whatsapp.com/send/?phone=+918882770287#&text=Hello&app_absent=0"><i
-            class="bi bi-whatsapp"></i></a>
+        <a class="whatsapp" href="https://api.whatsapp.com/send/?phone=+918882770287#&text=Hello&app_absent=0"><i class="bi bi-whatsapp"></i></a>
     </div>
     <!-- End whatsapp section -->
-        
-        <!-- Copyright Start -->
- <div class="d-none container-fluid copyright py-4">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom text-white" href="#">.</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
+    
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>  
 
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>  
-        <script>
-    const track = document.getElementById("carouselTrack");
-    const cardWidth = 320; // card + margin
-    let position = 0;
-
-    // Clone existing reviews to make it loop
-    const cloneReviews = () => {
-      const cards = [...track.children];
-      cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        track.appendChild(clone);
-      });
-    };
-
-    cloneReviews();
-
-    function moveSlide(direction) {
-      position += direction;
-      const maxScroll = track.children.length * cardWidth / 2;
-
-      if (position * cardWidth >= maxScroll) {
-        position = 0;
-        track.style.transition = 'none';
-        track.style.transform = `translateX(0px)`;
-        setTimeout(() => {
-          track.style.transition = 'transform 0.5s ease-in-out';
-        }, 10);
-      } else if (position < 0) {
-        position = 0;
-      }
-
-      track.style.transform = `translateX(-${position * cardWidth}px)`;
-    }
-
-    // Auto Slide every 3 sec
-    setInterval(() => {
-      moveSlide(1);
-    }, 3000);
-  </script> 
-
-        
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -434,10 +511,102 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    </body>
+    
+    <script>
+        // Carousel functionality
+        const track = document.getElementById("carouselTrack");
+        const cardWidth = 320; // card + margin
+        let position = 0;
 
+        // Clone existing reviews to make it loop
+        const cloneReviews = () => {
+          const cards = [...track.children];
+          cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+          });
+        };
+
+        cloneReviews();
+
+        function moveSlide(direction) {
+          position += direction;
+          const maxScroll = track.children.length * cardWidth / 2;
+
+          if (position * cardWidth >= maxScroll) {
+            position = 0;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(0px)`;
+            setTimeout(() => {
+              track.style.transition = 'transform 0.5s ease-in-out';
+            }, 10);
+          } else if (position < 0) {
+            position = 0;
+          }
+
+          track.style.transform = `translateX(-${position * cardWidth}px)`;
+        }
+
+        // Auto Slide every 3 sec
+        setInterval(() => {
+          moveSlide(1);
+        }, 3000);
+        
+        // Shipping Form Functions
+        function openShippingForm(productName, productPrice) {
+            document.getElementById('selectedProduct').textContent = productName;
+            document.getElementById('selectedPrice').textContent = '₹' + productPrice;
+            document.getElementById('productName').value = productName;
+            document.getElementById('productPrice').value = productPrice;
+            document.getElementById('shippingModal').style.display = 'flex';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+        
+        function closeShippingForm() {
+            document.getElementById('shippingModal').style.display = 'none';
+            document.getElementById('shippingForm').reset();
+        }
+        
+        // Handle form submission with AJAX
+        document.getElementById('shippingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Send data to server using AJAX
+            fetch('send_order.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if(data === 'success') {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    
+                    // Reset form after 3 seconds and close modal
+                    setTimeout(() => {
+                        document.getElementById('shippingForm').reset();
+                        closeShippingForm();
+                    }, 3000);
+                } else {
+                    // Show error message
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            });
+        });
+    </script>
+</body>
 </html>
