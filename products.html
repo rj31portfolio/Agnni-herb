@@ -268,7 +268,7 @@
                             <p class="text-mb-3">Agni Herb Capsule for Men is a 100% natural supplement that supports energy, stamina, and overall male vitality. Contains 60 herbal capsules.</p>
                             <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹4,498</span><br>₹3499 <span style="font-size: small; color: red;">22.21% OFF</span></p>
                             <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                            <button onclick="openShippingForm('Agni Herb Capsule (For Men)', '3499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
+                            <button type="button" onclick="openShippingForm('Agni Herb Capsule (For Men)', '3499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -280,7 +280,7 @@
                             <p class="mb-3">Agni Herb Powder for Men is a 100% natural herbal blend designed to boost energy, stamina, and male wellness. Comes in a 100g pack for daily vitality support.</p>
                             <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹6,997</span><br>₹5,998<span style="font-size: small; color: red;"> 14.28% OFF</span></p>
                             <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                            <button onclick="openShippingForm('Agni Herb Powder (For Men)', '5998')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
+                            <button type="button" onclick="openShippingForm('Agni Herb Powder (For Men)', '5998')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -292,7 +292,7 @@
                             <p class="mb-3">Agni Herb Drop for Men is a 100% natural liquid extract designed to support stamina, energy, and male wellness. Comes in a 30ml easy-to-use dropper bottle.</p>
                             <p class="fs-4 text-primary mb-3">₹2,499</p>
                             <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                            <button onclick="openShippingForm('Agni Herb Drop (For Men)', '2499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
+                            <button type="button" onclick="openShippingForm('Agni Herb Drop (For Men)', '2499')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -304,7 +304,7 @@
                             <p class="mb-3">AgniHerb Oil enhance size, boost performance, and build confidence naturally.</p>
                             <p class="fs-4 text-primary mb-3"><span style="text-decoration: line-through;">₹1,999</span><br> ₹999 <span style="font-size: small; color: red;">50% OFF</span></p>
                             <a href="https://wa.me/+918882770287" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rounded-pill py-2 px-4">Inquiry Now</a>
-                            <button onclick="openShippingForm('AgniHerb Penis Enlargement oil', '999')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
+                            <button type="button" onclick="openShippingForm('AgniHerb Penis Enlargement oil', '999')" class="btn btn-secondary rounded-pill py-2 px-4">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -314,7 +314,7 @@
     <!-- Products End -->
     
     <!-- Shipping Form Modal -->
-    <div id="shippingModal" class="modal-overlay">
+    <div id="shippingModal" style="display: none;" class="modal-overlay">
         <div class="modal-content">
             <h2>Shipping Information</h2>
             <div class="product-name" id="selectedProduct"></div>
@@ -516,6 +516,125 @@
     <script src="js/main.js"></script>
     
     <script>
+  // Shipping Form Functions
+function openShippingForm(productName, productPrice) {
+    // Validate inputs
+    if (!productName || !productPrice) {
+        console.error('Invalid product details');
+        return;
+    }
+
+    // Update modal content
+    document.getElementById('selectedProduct').textContent = productName;
+    document.getElementById('selectedPrice').textContent = '₹' + productPrice;
+    document.getElementById('productName').value = productName;
+    document.getElementById('productPrice').value = productPrice;
+    
+    // Show modal and hide messages
+    document.getElementById('shippingModal').style.display = 'flex';
+    document.getElementById('successMessage').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+    
+    // Focus on the first input field for better UX
+    const firstInput = document.querySelector('#shippingForm input:not([type="hidden"])');
+    if (firstInput) {
+        firstInput.focus();
+    }
+}
+
+function closeShippingForm() {
+    document.getElementById('shippingModal').style.display = 'none';
+    document.getElementById('shippingForm').reset();
+    
+    // Restore scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Handle form submission with AJAX
+document.addEventListener('DOMContentLoaded', function() {
+    const shippingForm = document.getElementById('shippingForm');
+    const shippingModal = document.getElementById('shippingModal');
+    
+    if (!shippingForm || !shippingModal) {
+        console.error('Required elements not found');
+        return;
+    }
+
+    shippingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Disable submit button to prevent multiple submissions
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+        }
+        
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Send data to server using AJAX
+        fetch('send_order.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            if(data.trim() === 'success') {
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // Reset form after 3 seconds and close modal
+                setTimeout(() => {
+                    shippingForm.reset();
+                    closeShippingForm();
+                    
+                    // Re-enable submit button
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit';
+                    }
+                }, 3000);
+            } else {
+                throw new Error(data || 'Unknown error occurred');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            
+            // Re-enable submit button on error
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+            }
+        });
+    });
+    
+    // Close modal when clicking outside of it
+    shippingModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeShippingForm();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && shippingModal.style.display === 'flex') {
+            closeShippingForm();
+        }
+    });
+});
         // Carousel functionality
         const track = document.getElementById("carouselTrack");
         const cardWidth = 320; // card + margin
@@ -554,59 +673,6 @@
         setInterval(() => {
           moveSlide(1);
         }, 3000);
-        
-        // Shipping Form Functions
-        function openShippingForm(productName, productPrice) {
-            document.getElementById('selectedProduct').textContent = productName;
-            document.getElementById('selectedPrice').textContent = '₹' + productPrice;
-            document.getElementById('productName').value = productName;
-            document.getElementById('productPrice').value = productPrice;
-            document.getElementById('shippingModal').style.display = 'flex';
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'none';
-        }
-        
-        function closeShippingForm() {
-            document.getElementById('shippingModal').style.display = 'none';
-            document.getElementById('shippingForm').reset();
-        }
-        
-        // Handle form submission with AJAX
-        document.getElementById('shippingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Send data to server using AJAX
-            fetch('send_order.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                if(data === 'success') {
-                    // Show success message
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('errorMessage').style.display = 'none';
-                    
-                    // Reset form after 3 seconds and close modal
-                    setTimeout(() => {
-                        document.getElementById('shippingForm').reset();
-                        closeShippingForm();
-                    }, 3000);
-                } else {
-                    // Show error message
-                    document.getElementById('errorMessage').style.display = 'block';
-                    document.getElementById('successMessage').style.display = 'none';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
-            });
-        });
     </script>
 </body>
 </html>
